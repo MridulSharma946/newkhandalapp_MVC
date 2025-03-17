@@ -1,0 +1,35 @@
+﻿@model List<User>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.Status</td>
+                <td>
+                    @if (user.Status == "Pending")
+                    {
+                        <form asp-action="ApproveUser" asp-controller="Home" method="post">
+                            <input type="hidden" name="id" value="@user.Id" />
+                            <button type="submit" class="btn btn-success">Approve</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-success">Approved</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

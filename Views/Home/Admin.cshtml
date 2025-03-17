@@ -1,0 +1,29 @@
+﻿@model List<newkhandalapp.Models.Admin>
+
+@{
+    ViewData["Title"] = "Admin List";
+}
+
+<h2>Admin List</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Pincode</th>
+            <th>Password</th>  @* Displaying password is not recommended *@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var admin in Model)
+        {
+            <tr>
+                <td>@admin.Id</td>
+                <td>@admin.FirstName</td>
+				<td>@admin.Pincode</td>
+                <td>@admin.Password</td> @* Masking password for security *@
+            </tr>
+        }
+    </tbody>
+</table>

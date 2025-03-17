@@ -1,0 +1,53 @@
+﻿@model List<newkhandalapp.Models.User>
+
+@{
+    ViewData["Title"] = "Members";
+}
+
+<h2>User List</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birth Date</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Gotra</th>
+            <th>Address</th>
+            <th>Zipcode</th>
+            <th>Marital Status</th>
+            <th>Education</th>
+            <th>Occupation</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.BirthDate.ToShortDateString()</td>
+                <td>@user.Gender</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.Gotra</td>
+                <td>@user.Address</td>
+                <td>@user.Zipcode</td>
+                <td>@user.MaritalStatus</td>
+                <td>@user.Education</td>
+                <td>@user.Occupation</td>
+                @if(@user.Status == "Pending"){
+                    <td>Pending</td>
+                }
+                else
+                {
+                    <td>Approved</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

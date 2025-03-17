@@ -1,0 +1,37 @@
+﻿@model newkhandalapp.Models.Admin;
+
+@{
+    ViewData["Title"] = "Create Admin";
+}
+
+<h2>Create Admin</h2>
+
+<form asp-action="CreateAdmin" method="post">
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label">Name</label>
+        <input asp-for="FirstName" class="form-control" required />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Pincode" class="form-label">Pincode</label>
+        <input asp-for="Pincode" class="form-control" required />
+        <span asp-validation-for="Pincode" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Password</label>
+        <input asp-for="Password" type="password" class="form-control" required />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Admin</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-2">Back to List</a>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
